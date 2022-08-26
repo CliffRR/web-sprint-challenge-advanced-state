@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import * as actions from '../state/action-creators'
 
 export function Wheel(props) {
-  // console.log("Wheel", props.wheel)
   return (
     <div id="wrapper">  
       <div id="wheel">
@@ -21,9 +20,5 @@ export function Wheel(props) {
     </div>
   )
 }
-
-// const mapStateToProps = (store) => {
-//   return store;
-// };
 
 export default connect(st => st, actions)(Wheel);

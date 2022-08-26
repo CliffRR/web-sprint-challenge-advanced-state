@@ -92,6 +92,9 @@ export function postAnswer(question_ID, answer_ID) {
     axios.post('http://localhost:9000/api/quiz/answer', {quiz_id: question_ID, answer_id: answer_ID})
       .then((res)=>{
         dispatch(setMessage(res.data.message))
+        dispatch(resetQuiz())
+        dispatch(renderOrNaw())
+
       })
     // On successful POST:
     // - Dispatch an action to reset the selected answer state
@@ -103,6 +106,8 @@ export function postQuiz(obj) {
   return function (dispatch) {
     axios.post('http://localhost:9000/api/quiz/new', obj)
       .then((res)=>{
+        console.log(res)
+        dispatch(setMessageForm(res.data.question))
         dispatch(resetForm())
       })
     // On successful POST:

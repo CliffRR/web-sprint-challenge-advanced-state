@@ -4,9 +4,6 @@ import * as actions from '../state/action-creators'
 
 
 export function Form(props) {
-  console.log("need: ", props.form.question_text)
-  console.log("Answer: ", props.set)
-
   const onChange = evt => {
     const { name, value } = evt.target
     props.inputChange({name, value})
@@ -15,7 +12,6 @@ export function Form(props) {
   const onSubmit = evt => {
     evt.preventDefault()
     props.postQuiz(props.form)
-    props.setMessageForm(props.form.question_text)
   }
 
   return (

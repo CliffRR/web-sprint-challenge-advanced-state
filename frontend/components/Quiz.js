@@ -19,9 +19,7 @@ export function Quiz(props) {
   }
 
   const handleSubmit = () => {
-    props.renderOrNaw()
     props.setLoading(true)
-    props.resetQuiz()
     props.setMessage()
     if(props.selectedAnswer.answer1 === true){
       props.postAnswer(props.quizQuestion.questionID, props.quizQuestion.correctAnswerID)
