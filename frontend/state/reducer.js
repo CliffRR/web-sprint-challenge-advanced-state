@@ -2,27 +2,45 @@
 import { combineReducers } from 'redux'
 import * as types from './action-types'
 
+// const initialWheelState = 0
+// function wheel(state = initialWheelState, action) {
+//   switch(action.type) {
+//     case types.MOVE_CLOCKWISE: {
+//       if ((state === 0) || (state === 1) || (state === 2) || (state === 3) || (state === 4)) {
+//         return state += 1
+//       }
+//       if (state === 5) {
+//         return state = 0
+//       }
+//     }
+//     break
+//     case types.MOVE_COUNTERCLOCKWISE: {
+//       if ((state === 5) || (state === 1) || (state === 2) || (state === 3) || (state === 4)) {
+//         return state -= 1
+//       }
+//       if (state === 0) {
+//         return state = 5
+//       }
+//     }
+//     break
+//     default:
+//       return state
+//   }
+// }
+
 const initialWheelState = 0
 function wheel(state = initialWheelState, action) {
   switch(action.type) {
     case types.MOVE_CLOCKWISE: {
-      if ((state === 0) || (state === 1) || (state === 2) || (state === 3) || (state === 4)) {
-        return state += 1
-      }
-      if (state === 5) {
-        return state = 0
-      }
+      const nextNumber = state+1
+      return nextNumber > 5 ? 0 : nextNumber
     }
-    break
+  
     case types.MOVE_COUNTERCLOCKWISE: {
-      if ((state === 5) || (state === 1) || (state === 2) || (state === 3) || (state === 4)) {
-        return state -= 1
-      }
-      if (state === 0) {
-        return state = 5
-      }
+      const nextNumber = state - 1
+      return nextNumber < 0 ? 5 : nextNumber
     }
-    break
+  
     default:
       return state
   }
